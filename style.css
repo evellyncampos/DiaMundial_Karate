@@ -1,0 +1,406 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que padding não quebre o layout */
+}
+
+.header {
+  background-color: #c28d67;
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px;
+  padding: 25px 0;
+  top: 0;
+  z-index: 1000;
+  margin: 0;
+  display: flex;
+    flex-direction: column; /* logo em cima, menu embaixo */
+    align-items: center;    /* centraliza horizontalmente */
+    justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  padding: 15px 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 170px;
+  margin-left: 20px;
+  margin-right: 60px;
+}
+
+.nav-menu {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  width: 100%;
+}
+
+/* Estilização dos Botões de Navegação */
+.nav-button {
+  font-size: 17px;
+  color: #8f0000;
+  text-decoration: none; /* Remove o sublinhado padrão do link */
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px; /* Dá corpo ao botão (espaço interno) */
+  transition: color 0.3s ease;
+}
+
+/* Efeito de brilho suave no texto ao passar o mouse */
+.nav-button:hover {
+  color: #eee8e8; 
+}
+
+/* Configuração base para as linhas (superior e inferior) */
+.nav-button::after,
+.nav-button::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #bc0000, #8d5631);
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.4s ease-out;
+}
+
+/* Linha Superior */
+.nav-button::before {
+  top: 0; /* Alinhada exatamente no topo do padding do botão */
+  transform-origin: left;
+}
+
+/* Linha Inferior */
+.nav-button::after {
+  bottom: 0; /* Alinhada exatamente na base do padding do botão */
+  transform-origin: right;
+}
+
+/* Ativação do efeito no Hover */
+.nav-button:hover::after,
+.nav-button:hover::before {
+  transform: scaleX(1);
+}
+
+/* Banner */
+
+/* Container principal do banner */
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* NOVA REGRA: Filtro escuro sobre o vídeo */
+.banner-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* O valor 0.5 define a opacidade (50% de preto). Aumente para escurecer mais */
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 0; /* Fica acima do vídeo (z-index: -1) e abaixo do texto (z-index: 1) */
+}
+
+/* O vídeo de fundo */
+.banner-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Mantém o vídeo na camada mais baixa */
+}
+
+/* Conteúdo sobreposto ao vídeo */
+.banner-content {
+    text-align: center;
+    color: #ffffff;
+    font-family: sans-serif;
+    z-index: 1; /* Garante que o texto fique por cima da película escura */
+    padding: 20px;
+    font-size: 32px;
+}
+
+.content-section{
+    padding: 40px 20px;
+    text-align: left;
+    margin-left: 150px;
+    margin-right: 150px;
+
+}
+
+.h2 {
+    color: #8f0000;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 28px;
+}
+
+.paragrafo {
+    text-indent: 50px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 19px;
+}
+
+.paragrafo2 {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 19px;
+}
+
+.footer {
+    background: #c28d67;
+    color: white;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 40px;
+    padding: 40px 60px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 16px;
+}
+
+.footer-section a {
+    color: white;
+}
+
+.footer-section img {
+    max-width: 150px;
+}
+
+.ucb-logo {
+    max-width: 180px;
+}
+
+.unidades {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.unidade {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+}
+
+.unidade iframe {
+    border-radius: 10px;
+}
+
+.container .card .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #8f0000;
+}
+
+.card-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container .card .slide {
+    width: 300px;
+    height: 200px;
+    transition: 0.5s;
+}
+
+.container .card .slide.slide1 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: .7s;
+    transform: translateY(100px);
+}
+
+.container .card:hover .slide.slide1 {
+    transform: translateY(0px);
+}
+
+.container .card .slide.slide2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: .8s;
+    transform: translateY(-100px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.container .card:hover .slide.slide2 {
+    transform: translateY(0);
+}
+
+.container .card .slide.slide2::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #8f0000;
+}
+
+.container .card .slide.slide2 .content p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #414141;
+}
+
+.container .card .slide.slide2 .content h3 {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 24px;
+    text-align: center;
+    color: #414141;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.card-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+
+    max-width: 1100px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+@media (max-width: 992px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.content-section {
+    padding: 60px 40px;
+    background-color: #f5f5f5;
+}
+
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.unidades {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.unidade {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.unidade:hover {
+    transform: translateY(-5px);
+}
+
+.unidade h3 {
+    margin-top: 0;
+    color: #8f0000;
+}
+
+.unidade p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.unidade iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 8px;
+}
